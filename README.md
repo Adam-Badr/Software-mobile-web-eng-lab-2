@@ -1,6 +1,3 @@
-====================== README.md ======================
-[![Unlicense License][license-shield]][license-url]
-
 # Software, Mobile and Web engineering lab 1 Assignment
 
 This project extracts structured information from receipt images using OpenAI’s vision models.  
