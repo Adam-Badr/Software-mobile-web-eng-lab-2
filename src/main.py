@@ -1,8 +1,8 @@
 # main.py
 import json
 import argparse
-from . import file_io as io_mod
-from . import gpt
+import gpt
+import file_io as io_mod
 
 
 def process_directory(dirpath):
