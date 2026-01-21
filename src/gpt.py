@@ -66,4 +66,29 @@ The output must be valid JSON.
             }
         ],
     )
-    return json.loads(response.choices[0].message.content)
+    output = json.loads(response.choices[0].message.content)
+    return sanity_check(output)
+
+
+
+def sanity_check(jsonString):
+    if not isinstance(jsonString, dict):
+        return jsonString
+
+    amount = jsonString.get("amount", None)
+    if amount is None:
+        return jsonString
+    
+    if isinstance(amount, (int, float)):
+        jsonString["amount"] = float(amount)
+        return jsonString
+    
+    if not isinstance(amount, str):
+        return jsonString
+    
+    s = s.replace("$", "")
+    try:
+        jsonString["amount"] = float(s)
+    except Exception:
+        pass
+    return jsonString
